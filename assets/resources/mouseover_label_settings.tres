@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cw8k6d5dhs71x"]
+
+[ext_resource type="FontFile" uid="uid://cpqyg0gv5wxrq" path="res://assets/fonts/OldNewspaperTypes.ttf" id="1_mrt8h"]
+
+[resource]
+font = ExtResource("1_mrt8h")
