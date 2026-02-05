@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5wfrixopkv0"]
+
+[ext_resource type="FontFile" uid="uid://cpqyg0gv5wxrq" path="res://assets/fonts/OldNewspaperTypes.ttf" id="1_eb7nf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_taums"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q42k7"]
+
+[node name="InventoryMenuButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.487662, 0.487662, 0.487662, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.835021, 0.765253, 0.498218, 1)
+theme_override_colors/font_hover_color = Color(0.748128, 0.662458, 0.274809, 1)
+theme_override_colors/icon_disabled_color = Color(0.347817, 0.347817, 0.347817, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.704834, 0.688042, 0.160347, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_eb7nf")
+theme_override_styles/focus = SubResource("StyleBoxFlat_taums")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q42k7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_taums")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_taums")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q42k7")
+action_mode = 0
+shortcut_in_tooltip = false
+alignment = 0

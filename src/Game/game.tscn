@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://2dyo5rhurojc"]
+[gd_scene load_steps=21 format=3 uid="uid://2dyo5rhurojc"]
 
 [ext_resource type="Script" uid="uid://dxy6hq4bwcldu" path="res://src/Game/game.gd" id="1_60cvd"]
 [ext_resource type="Script" uid="uid://lw2kmxdet0qf" path="res://src/Map/map.gd" id="2_sag4g"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://c85hbyh6joltd" path="res://src/Game/EventHandlers/history_viewer.gd" id="8_ysswf"]
 [ext_resource type="Script" uid="uid://bnsusmtptocl4" path="res://src/GUI/hp_display.gd" id="9_mkl7w"]
 [ext_resource type="FontFile" uid="uid://cpqyg0gv5wxrq" path="res://assets/fonts/OldNewspaperTypes.ttf" id="10_drysr"]
+[ext_resource type="Script" uid="uid://cofc85kgm85wj" path="res://src/Game/EventHandlers/base_input_handler.gd" id="10_x8pff"]
 [ext_resource type="Script" uid="uid://c0jwrtqfhnb6l" path="res://src/GUI/message_log.gd" id="11_drysr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qd4d"]
@@ -77,8 +78,10 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
 disable_3d = true
+handle_input_locally = false
 canvas_item_default_texture_filter = 0
 size = Vector2i(1152, 540)
+render_target_update_mode = 4
 
 [node name="Game" type="Node2D" parent="VBoxContainer/SubViewportContainer/SubViewport"]
 script = ExtResource("1_60cvd")
@@ -112,6 +115,9 @@ script = ExtResource("6_7m6cs")
 script = ExtResource("8_ysswf")
 messages_panel_path = NodePath("../../../../../InfoBar/MessagesPanel")
 message_log_path = NodePath("../../../../../InfoBar/MessagesPanel/MessageLog")
+
+[node name="DummyInputHandler" type="Node" parent="VBoxContainer/SubViewportContainer/SubViewport/Game/InputHandler"]
+script = ExtResource("10_x8pff")
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/SubViewportContainer/SubViewport/Game"]
 zoom = Vector2(3, 3)

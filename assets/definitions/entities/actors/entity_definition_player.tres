@@ -27,4 +27,5 @@ is_blocking_movement = true
 type = 2
 fighter_definition = SubResource("Resource_eqybp")
 ai_type = 1
+inventory_capacity = 26
 metadata/_custom_type_script = "uid://2mumctv4i2p0"
