@@ -1,5 +1,5 @@
-res://src/GUI/InvetoryMenu
 res://assets/definitions/entities/items/
+res://src/GUI/Reticle
 res://assets/definitions/entities/
 res://assets/resources/
 res://src/Utils

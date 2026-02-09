@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://2dyo5rhurojc"]
+[gd_scene load_steps=22 format=3 uid="uid://2dyo5rhurojc"]
 
 [ext_resource type="Script" uid="uid://dxy6hq4bwcldu" path="res://src/Game/game.gd" id="1_60cvd"]
 [ext_resource type="Script" uid="uid://lw2kmxdet0qf" path="res://src/Map/map.gd" id="2_sag4g"]
 [ext_resource type="Script" uid="uid://brhm4snh7ruw5" path="res://src/Map/dungeon_generator.gd" id="3_bob6j"]
+[ext_resource type="PackedScene" uid="uid://b6q0173qdfoy5" path="res://src/GUI/Reticle/reticle.tscn" id="3_muykf"]
 [ext_resource type="Script" uid="uid://bm6ns60fqtabe" path="res://src/Map/field_of_view.gd" id="4_3s8ir"]
 [ext_resource type="Script" uid="uid://t76c3co2oofx" path="res://src/Game/EventHandlers/input_handler.gd" id="5_3s8ir"]
 [ext_resource type="Script" uid="uid://cy1ef6n6rhck" path="res://src/GUI/mouseover_checker.gd" id="5_4te78"]
@@ -89,6 +90,8 @@ script = ExtResource("1_60cvd")
 [node name="Map" type="Node2D" parent="VBoxContainer/SubViewportContainer/SubViewport/Game"]
 script = ExtResource("2_sag4g")
 
+[node name="Reticle" parent="VBoxContainer/SubViewportContainer/SubViewport/Game/Map" instance=ExtResource("3_muykf")]
+
 [node name="DungeonGenerator" type="Node2D" parent="VBoxContainer/SubViewportContainer/SubViewport/Game/Map"]
 script = ExtResource("3_bob6j")
 
@@ -105,8 +108,9 @@ script = ExtResource("5_4te78")
 [node name="InputHandler" type="Node2D" parent="VBoxContainer/SubViewportContainer/SubViewport/Game"]
 script = ExtResource("5_3s8ir")
 
-[node name="MainGameInputHandler" type="Node" parent="VBoxContainer/SubViewportContainer/SubViewport/Game/InputHandler"]
+[node name="MainGameInputHandler" type="Node" parent="VBoxContainer/SubViewportContainer/SubViewport/Game/InputHandler" node_paths=PackedStringArray("reticle")]
 script = ExtResource("6_le6wr")
+reticle = NodePath("../../Map/Reticle")
 
 [node name="GameOverInputHandler" type="Node" parent="VBoxContainer/SubViewportContainer/SubViewport/Game/InputHandler"]
 script = ExtResource("6_7m6cs")

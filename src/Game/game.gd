@@ -23,6 +23,7 @@ func _ready() -> void:
 		"Carry your burden and steady your heart, young adventurer",
 		GameColors.WELCOME_TEXT
 	).call_deferred()
+	camera.make_current.call_deferred()
 
 func get_map_data() -> MapData:
 	return map.map_data
