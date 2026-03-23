@@ -28,3 +28,12 @@ func update_fov(player_position: Vector2i) -> void:
 	field_of_view.update_fov(map_data, player_position, fov_radius)
 	for entity in map_data.entities:
 		entity.visible = map_data.get_tile(entity.grid_position).is_in_view
+
+func load_game(player: Entity) -> bool:
+	map_data = MapData.new(0, 0, player)
+	map_data.entity_placed.connect(entities.add_child)
+	if not map_data.load_game():
+		return false
+	_place_tiles()
+	_place_entities()
+	return true

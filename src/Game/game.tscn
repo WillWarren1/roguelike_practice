@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://2dyo5rhurojc"]
+[gd_scene load_steps=23 format=3 uid="uid://2dyo5rhurojc"]
 
 [ext_resource type="Script" uid="uid://dxy6hq4bwcldu" path="res://src/Game/game.gd" id="1_60cvd"]
+[ext_resource type="Script" uid="uid://b5op1q8d1igvv" path="res://src/Game/game_root.gd" id="1_adbi8"]
 [ext_resource type="Script" uid="uid://lw2kmxdet0qf" path="res://src/Map/map.gd" id="2_sag4g"]
 [ext_resource type="Script" uid="uid://brhm4snh7ruw5" path="res://src/Map/dungeon_generator.gd" id="3_bob6j"]
 [ext_resource type="PackedScene" uid="uid://b6q0173qdfoy5" path="res://src/GUI/Reticle/reticle.tscn" id="3_muykf"]
@@ -61,6 +62,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_adbi8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -81,10 +83,11 @@ stretch = true
 disable_3d = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(1152, 540)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Game" type="Node2D" parent="VBoxContainer/SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
 script = ExtResource("1_60cvd")
 
 [node name="Map" type="Node2D" parent="VBoxContainer/SubViewportContainer/SubViewport/Game"]

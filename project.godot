@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="roguelike_practice"
-run/main_scene="uid://2dyo5rhurojc"
+run/main_scene="uid://3q33bip72c6h"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

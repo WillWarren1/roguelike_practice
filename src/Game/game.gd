@@ -12,8 +12,8 @@ signal player_created(player)
 var player_grid_pos := Vector2i.ZERO
 
 
-func _ready() -> void:
-	player = Entity.new(null, Vector2i.ZERO, player_definition)
+func new_game() -> void:
+	player = Entity.new(null, Vector2i.ZERO, "player")
 	player_created.emit(player)
 	remove_child(camera)
 	player.add_child(camera)
@@ -24,6 +24,21 @@ func _ready() -> void:
 		GameColors.WELCOME_TEXT
 	).call_deferred()
 	camera.make_current.call_deferred()
+
+func load_game() -> bool:
+	player = Entity.new(null, Vector2i.ZERO, "")
+	remove_child(camera)
+	player.add_child(camera)
+	if not map.load_game(player):
+		return false
+	player_created.emit(player)
+	map.update_fov(player.grid_position)
+	MessageLog.send_message.bind(
+		"Sweet returnings, wanderer.",
+		GameColors.WELCOME_TEXT
+	).call_deferred()
+	camera.make_current.call_deferred()
+	return true
 
 func get_map_data() -> MapData:
 	return map.map_data

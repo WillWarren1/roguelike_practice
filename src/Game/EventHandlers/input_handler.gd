@@ -15,7 +15,6 @@ enum InputHandlers {MAIN_GAME, GAME_OVER, HISTORY_VIEWER, DUMMY}
 var current_input_handler: BaseInputHandler
 
 func _ready() -> void:
-	print(start_input_handler)
 	transition_to(start_input_handler)
 	SignalBus.player_died.connect(transition_to.bind(InputHandlers.GAME_OVER))
 

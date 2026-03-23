@@ -1,3 +1,6 @@
+res://src/Game
+res://src/Game/
+res://src/GUI/MainMenu
 res://assets/definitions/entities/items/
 res://src/GUI/Reticle
 res://assets/definitions/entities/
@@ -7,5 +10,4 @@ res://assets/
 res://assets/definitions/entities/actors/
 res://assets/definitions/tiles/
 res://assets/definitions/
-res://src/Game
 res://src
