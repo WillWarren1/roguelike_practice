@@ -13,3 +13,8 @@ res://src/Entities/Actors/Actions/item_action.gd
 res://src/Entities/Actors/Components/healing_consumable_component.gd
 res://src/Game/EventHandlers/input_handler.gd
 res://src/Entities/Actors/Components/consumable_component.gd
+res://src/Utils/colors.gd
+res://assets/definitions/tiles/tile_definition_down_stairs.tres
+res://src/Map/map_data.gd
+res://src/Map/dungeon_generator.gd
+res://src/Map/tile.gd

@@ -1,3 +1,4 @@
+res://assets/definitions/tiles/
 res://src/Game
 res://src/Game/
 res://src/GUI/MainMenu
@@ -8,6 +9,5 @@ res://assets/resources/
 res://src/Utils
 res://assets/
 res://assets/definitions/entities/actors/
-res://assets/definitions/tiles/
 res://assets/definitions/
 res://src

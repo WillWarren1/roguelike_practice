@@ -69,10 +69,10 @@ func set_entity_type(key: String) -> void:
 	if entity_definition.consumable_definition:
 		_handle_consumable(entity_definition.consumable_definition)
 	
-	if entity_definition.consumable_definition:
-		if entity_definition.consumable_definition is HealingConsumableComponentDefinition:
-			consumable_component = HealingConsumableComponent.new(entity_definition.consumable_definition)
-			add_child(consumable_component)
+	#if entity_definition.consumable_definition:
+		#if entity_definition.consumable_definition is HealingConsumableComponentDefinition:
+			#consumable_component = HealingConsumableComponent.new(entity_definition.consumable_definition)
+			#add_child(consumable_component)
 	
 	if entity_definition.inventory_capacity > 0:
 		inventory_component = InventoryComponent.new(entity_definition.inventory_capacity)
@@ -131,3 +131,4 @@ func restore(save_data: Dictionary) -> void:
 			add_child(confused_enemy_ai)
 	if inventory_component and save_data.has("inventory_component"):
 		inventory_component.restore(save_data["inventory_component"])
+		#add_child(inventory_component)
