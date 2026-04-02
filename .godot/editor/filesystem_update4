@@ -11,3 +11,5 @@ res://src/GUI/InventoryMenu/inventory_menu_item.tscn
 res://src/GUI/Reticle/reticle.tscn
 res://src/GUI/MainMenu/main_menu.tscn
 res://src/Game/game_manager.tscn
+res://src/Entities/Actors/Components/healing_consumable_component.gd
+res://src/Entities/Actors/Actions/item_action.gd
