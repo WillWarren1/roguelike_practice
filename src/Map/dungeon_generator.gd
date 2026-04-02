@@ -54,8 +54,9 @@ func _tunnel_between(dungeon: MapData, start: Vector2i, end: Vector2i) -> void:
 		_tunnel_vertical(dungeon, start.x, start.y, end.y)
 		_tunnel_horizontal(dungeon, end.y, start.x, end.x)
 
-func generate_dungeon(player: Entity) -> MapData:
+func generate_dungeon(player: Entity, current_floor: int) -> MapData:
 	var dungeon := MapData.new(map_width, map_height, player)
+	dungeon.current_floor = current_floor
 	dungeon.entities.append(player)
 	var rooms: Array[Rect2i] = []
 	var center_last_room: Vector2i

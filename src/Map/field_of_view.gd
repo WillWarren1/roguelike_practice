@@ -66,3 +66,6 @@ func _cast_light(map_data: MapData, x: int, y: int, radius: int, row: int, start
 				_cast_light(map_data, x, y, radius, i + 1, start_slope, l_slope, xx, xy, yx, yy)
 		if blocked:
 			break
+
+func reset_fov() -> void:
+	_fov = []

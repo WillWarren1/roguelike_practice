@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://2dyo5rhurojc"]
+[gd_scene load_steps=25 format=3 uid="uid://2dyo5rhurojc"]
 
 [ext_resource type="Script" uid="uid://dxy6hq4bwcldu" path="res://src/Game/game.gd" id="1_60cvd"]
 [ext_resource type="Script" uid="uid://b5op1q8d1igvv" path="res://src/Game/game_root.gd" id="1_adbi8"]
@@ -16,6 +16,7 @@
 [ext_resource type="FontFile" uid="uid://cpqyg0gv5wxrq" path="res://assets/fonts/OldNewspaperTypes.ttf" id="10_drysr"]
 [ext_resource type="Script" uid="uid://cofc85kgm85wj" path="res://src/Game/EventHandlers/base_input_handler.gd" id="10_x8pff"]
 [ext_resource type="Script" uid="uid://c0jwrtqfhnb6l" path="res://src/GUI/message_log.gd" id="11_drysr"]
+[ext_resource type="Script" uid="uid://dnhi83j8cjcf" path="res://src/Game/dungeon_floor_label.gd" id="16_lr6s2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qd4d"]
 atlas = ExtResource("8_lx5th")
@@ -43,6 +44,9 @@ font = ExtResource("10_drysr")
 font_size = 24
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nwlnk"]
+font = ExtResource("10_drysr")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_drysr"]
 content_margin_left = 8.0
@@ -83,7 +87,7 @@ stretch = true
 disable_3d = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(2, 2)
+size = Vector2i(1152, 540)
 render_target_update_mode = 4
 
 [node name="Game" type="Node2D" parent="VBoxContainer/SubViewportContainer/SubViewport"]
@@ -163,6 +167,11 @@ label_settings = SubResource("LabelSettings_x8pff")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="DungeonFloorLabel" type="Label" parent="VBoxContainer/InfoBar/StatsPanel/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_nwlnk")
+script = ExtResource("16_lr6s2")
+
 [node name="MouseOverLabel" type="Label" parent="VBoxContainer/InfoBar/StatsPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
@@ -186,4 +195,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [connection signal="player_created" from="VBoxContainer/SubViewportContainer/SubViewport/Game" to="VBoxContainer/InfoBar/StatsPanel/VBoxContainer/HPDisplay" method="initialize"]
+[connection signal="dungeon_floor_changed" from="VBoxContainer/SubViewportContainer/SubViewport/Game/Map" to="VBoxContainer/InfoBar/StatsPanel/VBoxContainer/DungeonFloorLabel" method="set_dungeon_floor"]
 [connection signal="entities_focused" from="VBoxContainer/SubViewportContainer/SubViewport/Game/Map/MouseOver" to="VBoxContainer/InfoBar/StatsPanel/VBoxContainer/MouseOverLabel" method="set_text"]
