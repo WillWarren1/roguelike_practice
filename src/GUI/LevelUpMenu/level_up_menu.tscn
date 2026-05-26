@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhcdyb6ffwb20"]
+
+[ext_resource type="Texture2D" uid="uid://bs2em538m1opg" path="res://assets/images/monochrome_packed.png" id="1_7db25"]
+[ext_resource type="Script" uid="uid://coogfgmbt8lq6" path="res://src/GUI/LevelUpMenu/level_up_menu.gd" id="1_x6fc4"]
+[ext_resource type="PackedScene" uid="uid://b5wfrixopkv0" path="res://src/GUI/InventoryMenu/inventory_menu_item.tscn" id="2_g0l10"]
+[ext_resource type="FontFile" uid="uid://cpqyg0gv5wxrq" path="res://assets/fonts/OldNewspaperTypes.ttf" id="2_x6fc4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qd4d"]
+atlas = ExtResource("1_7db25")
+region = Rect2(768, 336, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x6fc4"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = SubResource("AtlasTexture_0qd4d")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ykw3g"]
+font = ExtResource("2_x6fc4")
+font_size = 32
+font_color = Color(1, 1, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yqkux"]
+font = ExtResource("2_x6fc4")
+font_size = 32
+font_color = Color(1, 1, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_g0l10"]
+color = Color(1, 1, 1, 1)
+
+[node name="LevelUpMenu" type="CanvasLayer"]
+script = ExtResource("1_x6fc4")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x6fc4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level Up!"
+label_settings = SubResource("LabelSettings_ykw3g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Congratulations! You level up! Select an attribute to increase."
+label_settings = SubResource("LabelSettings_yqkux")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_g0l10")
+
+[node name="HealthUpgradeButton" parent="CenterContainer/PanelContainer/VBoxContainer" instance=ExtResource("2_g0l10")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PowerUpgradeButton" parent="CenterContainer/PanelContainer/VBoxContainer" instance=ExtResource("2_g0l10")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DefenseUpgradeButton" parent="CenterContainer/PanelContainer/VBoxContainer" instance=ExtResource("2_g0l10")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HealthUpgradeButton" to="." method="_on_health_upgrade_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/PowerUpgradeButton" to="." method="_on_power_upgrade_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/DefenseUpgradeButton" to="." method="_on_defense_upgrade_button_pressed"]
