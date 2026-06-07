@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EntityDefinition" load_steps=6 format=3 uid="uid://crig8fvyuqrim"]
+
+[ext_resource type="Script" uid="uid://bkbxh13eob3f1" path="res://src/Entities/Actors/Components/ComponentDefinitions/equippable_component_definition.gd" id="1_6by5p"]
+[ext_resource type="Script" uid="uid://2mumctv4i2p0" path="res://src/Entities/entity_definition.gd" id="2_wtb1m"]
+[ext_resource type="Texture2D" uid="uid://bs2em538m1opg" path="res://assets/images/monochrome_packed.png" id="3_aixki"]
+
+[sub_resource type="Resource" id="Resource_l50jg"]
+script = ExtResource("1_6by5p")
+equipment_type = 1
+power_bonus = 0
+defense_bonus = 1
+metadata/_custom_type_script = "uid://bkbxh13eob3f1"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7reci"]
+atlas = ExtResource("3_aixki")
+region = Rect2(512, 16, 16, 16)
+
+[resource]
+script = ExtResource("2_wtb1m")
+name = "Leather Armor"
+texture = SubResource("AtlasTexture_7reci")
+color = Color(0.498039, 0.498039, 0.498039, 1)
+is_blocking_movement = false
+type = 1
+ai_type = 0
+item_definition = SubResource("Resource_l50jg")
+inventory_capacity = 0
+metadata/_custom_type_script = "uid://2mumctv4i2p0"

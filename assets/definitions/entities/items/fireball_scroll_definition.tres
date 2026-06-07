@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://2mumctv4i2p0" path="res://src/Entities/entity_definition.gd" id="1_s1ujj"]
 [ext_resource type="Texture2D" uid="uid://bs2em538m1opg" path="res://assets/images/monochrome_packed.png" id="3_eaite"]
 
-[sub_resource type="Resource" id="Resource_rs25l"]
+[sub_resource type="Resource" id="Resource_62n8f"]
 script = ExtResource("1_62n8f")
 damage = 12
 radius = 3
@@ -22,6 +22,6 @@ color = Color(1, 0.2, 0.2, 1)
 is_blocking_movement = false
 type = 1
 ai_type = 0
-consumable_definition = SubResource("Resource_rs25l")
+item_definition = SubResource("Resource_62n8f")
 inventory_capacity = 0
 metadata/_custom_type_script = "uid://2mumctv4i2p0"

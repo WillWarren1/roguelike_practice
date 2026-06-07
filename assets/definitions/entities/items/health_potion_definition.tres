@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://2mumctv4i2p0" path="res://src/Entities/entity_definition.gd" id="2_6eaxk"]
 [ext_resource type="Texture2D" uid="uid://bs2em538m1opg" path="res://assets/images/monochrome_packed.png" id="2_pw7ik"]
 
-[sub_resource type="Resource" id="Resource_23aud"]
+[sub_resource type="Resource" id="Resource_6eaxk"]
 script = ExtResource("1_xfnmh")
 healing_amount = 4
 metadata/_custom_type_script = "uid://cf4wdyso77u42"
@@ -21,6 +21,6 @@ color = Color(0, 0.725793, 0.49264, 1)
 is_blocking_movement = false
 type = 1
 ai_type = 0
-consumable_definition = SubResource("Resource_23aud")
+item_definition = SubResource("Resource_6eaxk")
 inventory_capacity = 0
 metadata/_custom_type_script = "uid://2mumctv4i2p0"

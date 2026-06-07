@@ -1,5 +1,6 @@
-TileDefinition
 EntityDefinition
+EquippableComponentDefinition
+TileDefinition
 HealingConsumableComponentDefinition
 LabelSettings
 AtlasTexture

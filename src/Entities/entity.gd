@@ -12,6 +12,10 @@ const entity_types = {
 	"lightning_scroll": "res://assets/definitions/entities/items/lightning_scroll_definition.tres",
 	"confusion_scroll": "res://assets/definitions/entities/items/confusion_scroll_definition.tres",
 	"fireball_scroll": "res://assets/definitions/entities/items/fireball_scroll_definition.tres",
+	"dagger": "res://assets/definitions/entities/items/dagger_definition.tres",
+	"sword": "res://assets/definitions/entities/items/sword_definition.tres",
+	"chainmail": "res://assets/definitions/entities/items/chainmail_definition.tres",
+	"leather_armor": "res://assets/definitions/entities/items/leather_armor_definition.tres",
 }
 
 var key: String
@@ -19,6 +23,7 @@ var key: String
 var fighter_component: FighterComponent
 var ai_component: BaseAIComponent
 var consumable_component: ConsumableComponent
+var equippable_component: EquippableComponent
 var inventory_component: InventoryComponent
 var level_component: LevelComponent
 
@@ -67,8 +72,13 @@ func set_entity_type(key: String) -> void:
 		fighter_component = FighterComponent.new(entity_definition.fighter_definition)
 		add_child(fighter_component)
 	
-	if entity_definition.consumable_definition:
-		_handle_consumable(entity_definition.consumable_definition)
+	var item_definition: ItemComponentDefinition = entity_definition.item_definition
+	if item_definition:
+		if item_definition is ConsumableComponentDefinition:
+			_handle_consumable(item_definition)
+		else:
+			equippable_component = EquippableComponent.new(item_definition)
+
 	
 	#if entity_definition.consumable_definition:
 		#if entity_definition.consumable_definition is HealingConsumableComponentDefinition:
