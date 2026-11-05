@@ -3,6 +3,19 @@ extends Sprite2D
 
 enum AIType {NONE, HOSTILE}
 enum EntityType {CORPSE, ITEM, ACTOR}
+enum PossibleComponentType {
+	AI,
+	CONFUSING_CONSUMABLE,
+	CONSUMABLE,
+	EQUIPPABLE,
+	FIGHTER,
+	FIREBALL_CONSUMABLE,
+	HEALING_CONSUMABLE,
+	INVENTORY,
+	ITEM,
+	LEVEL,
+	LIGHTNING_CONSUMABLE
+}
 
 const entity_types = {
 	"player": "res://assets/definitions/entities/actors/entity_definition_player.tres",
@@ -79,12 +92,6 @@ func set_entity_type(key: String) -> void:
 		else:
 			equippable_component = EquippableComponent.new(item_definition)
 
-	
-	#if entity_definition.consumable_definition:
-		#if entity_definition.consumable_definition is HealingConsumableComponentDefinition:
-			#consumable_component = HealingConsumableComponent.new(entity_definition.consumable_definition)
-			#add_child(consumable_component)
-	
 	if entity_definition.inventory_capacity > 0:
 		inventory_component = InventoryComponent.new(entity_definition.inventory_capacity)
 		add_child(inventory_component)
@@ -93,11 +100,30 @@ func set_entity_type(key: String) -> void:
 		level_component = LevelComponent.new(entity_definition.level_info)
 		add_child(level_component)
 
+func get_entity_name() -> String:
+	return entity_name
+
+func has_component(type: PossibleComponentType) -> bool:
+#	incomplete, need a better way to do this, but will serve for now.
+#	anything not in the match statement will return false.
+	match type:
+		PossibleComponentType.AI:
+			return ai_component != null
+		PossibleComponentType.FIGHTER:
+			return fighter_component != null
+		PossibleComponentType.INVENTORY:
+			return inventory_component != null
+		PossibleComponentType.EQUIPPABLE:
+			return equippable_component != null
+		PossibleComponentType.LEVEL:
+			return level_component != null
+		PossibleComponentType.CONSUMABLE:
+			return consumable_component != null
+	return false
+
 func is_blocking_movement() -> bool:
 	return blocks_movement
 
-func get_entity_name() -> String:
-	return entity_name
 
 func is_alive() -> bool:
 	return ai_component != null

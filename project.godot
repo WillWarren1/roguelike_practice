@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://src/Utils/signal_bus.gd"
 
+[dotnet]
+
+project/assembly_name="roguelike_practice"
+
 [input]
 
 move_up={
